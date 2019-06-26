@@ -1,0 +1,49 @@
+<?xml version="1.0"?> <!-- Version von xml -->
+<odoo>
+<!-- List view Form view und Search -->
+
+
+    <record id="view_form_book" model="ir.ui.view">
+        <field name="name">Book Form</field>
+        <field name="model">library.book</field>
+        <field name="arch" type="xml">
+            <form string="Book"><!-- Form view -->
+                <group>
+                    <field name="name"/>
+                    <field name="author_ids" widget="many2many_tags"/>
+                    <field name="publisher_id"/>
+                    <field name="date_published"/>
+                    <field name="isbn"/>
+                    <field name="active"/>
+                    <field name="image" widget="image"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_tree_book" model="ir.ui.view"><!--id und model -->
+        <field name="name">Book List</field><!-- Form der view-->
+        <field name="model">library.book</field><!-- model name in models-Ordner-->
+        <field name="arch" type="xml"><!--Architektur typ immer xml-->
+            <tree><!-- view typ durch tag form und Struktur-->
+                <field name="name"/>
+                <field name="author_ids" widget="many2many_tags"/>
+                <field name="publisher_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="product_template_products_sales_search_view" model="ir.ui.view">
+            <field name="name">Product</field>
+            <field name="model">product.template</field>
+            <field name="arch" type="xml">
+                <search string="Product"><!-- Search view -->
+                    <field name="name" string="Product Ref"/>
+                    <field name="default_code" string="Code"/>
+                </search>
+            </field>
+    </record>
+
+
+
+</odoo>
