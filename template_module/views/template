@@ -1,6 +1,6 @@
 <?xml version="1.0"?> <!-- Version von xml -->
 <odoo>
-<!-- List view Form view und Search -->
+<!-- List view Form-, Search- and menuitem view -->
 
 
     <record id="view_form_book" model="ir.ui.view">
@@ -41,6 +41,26 @@
                     <field name="name" string="Product Ref"/>
                     <field name="default_code" string="Code"/>
                 </search>
+            </field>
+    </record>
+
+    <!--Hier wird das Menu kriert-->
+    <menuitem name="Top Menu" id="custom_top_menu"/><!--Top Menu wird kriert-->
+    <menuitem name="Sub Menu" id="custom_sub_menu"> <!--Sub Menu wird kreiert-->
+              parent="custom_top_menu"</menuitem> <!--Eltern ist das custom_top_menu-->
+    <menuitem name="Child Menu" id="custom_child_menu"
+              parent="custom_sub_menu"/>
+
+    <record id="custom_action" model="ir_action_act_window"><!-- Action auf UI wird gestartet wegen dem Model ir_Action_act
+                                _window-->
+            <field name="name">child Menu</field>
+            <field name="res_model">custom.model</field><!--Anstatt custom.model muss das andere Model rein-->
+            <field name="view_type">form</field><!--View Type wird auf form initialisiert-->
+            <field name="view_mode">tree,form</field><!-- View Mode wird auf tree und form eingestellt-->
+            <field name="help" type="html"><!--Das Field help wird mit html aufgezeigt-->
+                   <p class="oe_nocontent_create">
+                      Click here to create new item!
+                   </p>
             </field>
     </record>
 
