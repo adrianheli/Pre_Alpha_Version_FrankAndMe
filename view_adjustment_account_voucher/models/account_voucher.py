@@ -4,7 +4,6 @@ Created on 27 Apr, 2015
 @author: roomsfor
 '''
 
-import openerp
 from openerp.osv import fields, osv
 
 
